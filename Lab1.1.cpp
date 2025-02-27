@@ -45,22 +45,27 @@ int main()
 {
     srand(time(0)); 
 
-    int n = 5;  
+    int n = 6;  
     vector<vector<int>> matrix(n, vector<int>(n));
 
     auto start = high_resolution_clock::now();
 
     fillMatrix(matrix, n);
 
+    cout << "Matrix before modification:" << endl;
+
+    printMatrix(matrix, n);
+
     mirrorRightHalf(matrix, n);
 
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
 
-    cout << "Час виконання: " << duration.count() << " мікросекунд" << endl;
-    cout << "Модифікована матриця:" << endl;
+    cout << "\nModified matrix:" << endl;
 
     printMatrix(matrix, n);
+
+    cout << "\nWork time: " << duration.count() << " microseconds" << endl;
 
     return 0;
 }
