@@ -59,13 +59,14 @@ int main()
     mirrorRightHalf(matrix, n);
 
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(end - start);
+    auto duration = duration_cast<nanoseconds>(end - start).count();
+    double seconds = duration * 1e-9;
 
     cout << "\nModified matrix:" << endl;
 
     printMatrix(matrix, n);
 
-    cout << "\nWork time: " << duration.count() << " microseconds" << endl;
+    cout << "\nWork time: " << fixed <<  seconds << " seconds" << endl;
 
     return 0;
 }
